@@ -1,4 +1,3 @@
-document.querySelector('form').addEventListener('submit',function(e){
 const form = document.getElementById("newsletterForm");
 const emailField = document.getElementById("email");
 const statusMessage = document.getElementById("statusMessage");
