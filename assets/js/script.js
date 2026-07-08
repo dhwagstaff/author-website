@@ -42,34 +42,3 @@ form.addEventListener("submit", async function(event) {
         statusMessage.textContent = "Connection error.";
     }
 });
-        });
-
-        if(response.ok)
-        {
-
-            statusMessage.textContent =
-                "Thank you for joining the reader list!";
-
-            emailField.value = "";
-
-        }
-        else
-        {
-
-            statusMessage.textContent =
-                "Unable to join. Please try again.";
-
-        }
-
-    }
-    catch(error)
-    {
-
-        console.error(error);
-
-        statusMessage.textContent =
-            "Connection error.";
-
-    }
-
-});
