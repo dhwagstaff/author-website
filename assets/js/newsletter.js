@@ -1,44 +1,74 @@
-const form = document.getElementById("newsletterForm");
-const emailField = document.getElementById("email");
-const statusMessage = document.getElementById("statusMessage");
+function doPost(e) {
+  const sheetName = "DHWagstaffReaderList";
 
-const scriptURL =
-    "https://script.google.com/macros/s/AKfycbzyHN1xz_XTFeiC8_1sB1utAMAg60whUnXYFvy0qg_H1vMPFnG6kZ3dMUMyFovovhwnxg/exec";
+  try {
+    const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
+    const sheet = spreadsheet.getSheetByName(sheetName);
 
-form.addEventListener("submit", async function(event) {
-    event.preventDefault();
-
-    const email = emailField.value.trim();
-
-    if (email.length === 0) {
-        return;
+    if (!sheet) {
+      return createResponse({
+        success: false,
+        message: "Sheet not found: " + sheetName
+      });
     }
 
-    statusMessage.textContent = "Joining...";
+    const email = (e.parameter.email || "").trim().toLowerCase();
+    const source = e.parameter.source || "Website";
+    const campaign = e.parameter.campaign || "Homepage";
+    const interestedIn = e.parameter.interestedIn || "General";
+    const dateJoined = new Date();
 
-    const formData = new FormData();
-    formData.append("email", email);
-    formData.append("source", "Website");
-    formData.append("campaign", "Homepage");
-    formData.append("interestedIn", "General");
+    if (!email || !isValidEmail(email)) {
+      return createResponse({
+        success: false,
+        message: "Invalid email address"
+      });
+    }
 
-    try {
-        const response = await fetch(scriptURL, {
-            method: "POST",
-            body: formData
+    const lastRow = sheet.getLastRow();
+
+    if (lastRow > 1) {
+      const existingEmails = sheet
+        .getRange(2, 1, lastRow - 1, 1)
+        .getValues()
+        .flat()
+        .map(value => String(value).trim().toLowerCase());
+
+      if (existingEmails.includes(email)) {
+        return createResponse({
+          success: true,
+          message: "Email already exists"
         });
-
-        const result = await response.json();
-
-        if (result.success) {
-            statusMessage.textContent = "Thank you for joining the reader list!";
-            emailField.value = "";
-        } else {
-            statusMessage.textContent = result.message || "Unable to join. Please try again.";
-        }
-
-    } catch (error) {
-        console.error(error);
-        statusMessage.textContent = "Connection error.";
+      }
     }
-});
+
+    sheet.appendRow([
+      email,
+      dateJoined,
+      source,
+      campaign,
+      interestedIn
+    ]);
+
+    return createResponse({
+      success: true,
+      message: "Subscriber added"
+    });
+
+  } catch (error) {
+    return createResponse({
+      success: false,
+      message: error.toString()
+    });
+  }
+}
+
+function createResponse(data) {
+  return ContentService
+    .createTextOutput(JSON.stringify(data))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+function isValidEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
