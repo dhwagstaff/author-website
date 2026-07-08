@@ -3,38 +3,182 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dean Wagstaff | Author</title>
-<link rel="stylesheet" href="styles.css">
+<title>D. H. Wagstaff | Author</title>
+
+<link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body>
-<header>
-<h1>Dean Wagstaff</h1>
-<nav>
-<a href="#book">Book</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</nav>
+
+<header class="site-header">
+
+	 <div class="branding">
+    	<div class="logo-frame">
+
+        	<img
+            	src="assets/images/dhWagstaffAuthorLogo.PNG"
+            	alt="D. H. Wagstaff Logo"
+            	class="logo">
+    	</div>
+
+    	<h1>D. H. Wagstaff | Author</h1>
+
+	</div>
+
+    <nav>
+
+        <a href="books.html">Books</a>
+        <a href="about.html">About</a>
+        <a href="media.html">Media</a>
+        <a href="contact.html">Contact</a>
+
+    </nav>
+
 </header>
 
 <section class="hero">
-<div>
-<h2>The Last Dispensation of Kings</h2>
-<p>An ordinary man discovers he is heir to the Albanian throne.</p>
-<a class="button" href="#book">Learn More</a>
-</div>
-<div>
-<img src="assets/cover-placeholder.jpg" alt="Book Cover">
-</div>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-text">
+
+        <p class="tagline">
+            Stories of history, mystery, legacy, and the extraordinary people
+            caught between them.
+        </p>
+
+        <h2>D. H. Wagstaff</h2>
+
+        <p>
+            Author of character-driven suspense where hidden histories collide
+            with ordinary lives.
+        </p>
+
+        <a class="button" href="#featured-book">
+            Explore the Books
+        </a>
+
+    </div>
+
 </section>
 
-<section id="book">
-<h2>Featured Novel</h2>
-<p>Replace this text with your final back-cover description.</p>
+
+<section id="featured-book" class="featured-book">
+
+    <div class="book-cover">
+        <img
+            src="assets/images/TheLastDispensationOfKingsBookCoverFrontBack.png"
+            alt="The Last Dispensation of Kings book cover">
+    </div>
+
+    <div class="book-info">
+        <p class="tagline">Featured Novel</p>
+
+        <h2>The Last Dispensation of Kings</h2>
+
+        <p>
+            An ordinary man discovers he is the last surviving heir to the
+            Albanian monarchy, setting into motion events that will change his
+            family forever.
+        </p>
+
+        <a class="button" href="books/last-dispensation-of-kings.html">
+            Explore the Novel
+        </a>
+    </div>
+
 </section>
+
 
 <section id="about">
-<h2>About the Author</h2>
-<p>Dean Wagstaff is a novelist and software developer.</p>
+
+	<div class="about-section">
+
+	    <h2>About the Author</h2>
+
+	    <div class="author-header">
+
+	        <div class="profile-frame">
+	            <img
+	                src="assets/images/AuthorProfile.png"
+	                alt="D. H. Wagstaff Profile"
+	                class="profile-image">
+	        </div>
+
+	        <h1>D. H. Wagstaff <span>| Author</span></h1>
+
+	    </div>
+
+	    <div class="author-text">
+
+	        <p>
+	            I was adopted as a child and spent much of my life knowing very little
+	            about my biological heritage. A DNA test later revealed that my ancestry
+	            traced to the Balkan region, sparking a deep interest in the history,
+	            culture, and people of Albania. While <em>The Last Dispensation of Kings</em>
+	            is entirely a work of fiction, that personal journey of discovering
+	            identity and heritage became one of the inspirations behind the novel.
+	        </p>
+
+	        <p>
+	            D. H. Wagstaff is a novelist and software developer whose stories explore
+	            identity, legacy, family, and the extraordinary choices ordinary people
+	            make when history unexpectedly intersects with their lives. He enjoys
+	            researching history, technology, and the human stories that connect them,
+	            bringing those interests together in character-driven novels filled with
+	            suspense and intrigue.
+	        </p>
+
+	    </div>
+	</div>
+
+</section>
+
+
+<section id="newsletter">
+
+    <h2>Join the Reader List</h2>
+
+    <p>
+        Receive updates about new releases, cover reveals,
+        and future novels.
+    </p>
+
+    <form id="newsletterForm">
+
+        <input
+            id="email"
+            type="email"
+            placeholder="Email Address"
+            required>
+
+        <button id="joinButton" type="submit">
+
+            Join the Reader List
+
+        </button>
+
+    </form>
+
+    <p id="statusMessage"></p>
+
+</section>
+
+
+<footer>
+
+    <p>
+
+        © 2026 D. H. Wagstaff
+
+    </p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html><p>Dean Wagstaff is a novelist and software developer.</p>
 </section>
 
 <section id="contact">
