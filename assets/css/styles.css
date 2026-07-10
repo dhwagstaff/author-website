@@ -182,17 +182,13 @@ footer {
     }
 }
 
-.author-header {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    margin-bottom: 35px;
-}
-
 .profile-image {
-    height: 480px;
-    width: auto;
-    border-radius: 12px;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: cover;
+    border-radius: 10px;
 }
 
 .logo-frame {
@@ -207,22 +203,85 @@ footer {
         inset 0 0 8px rgba(255,255,255,.05);
 }
 
+.author-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
 .author-text {
-    max-width: 100%;
+    max-width: 760px;
     line-height: 1.8;
+    font-size: 1.08rem;
 }
 
 .author-text p {
+    margin-top: 0;
     margin-bottom: 28px;
 }
 
-.about-section {
-    align-items: center;
-    gap: 20px;
+.author-text p:last-child {
+    margin-bottom: 0;
+}
 
-    background: #2d2823; 
-    padding: 10px 20px; 
-    border-radius: 12px; 
+.about-section {
+    max-width: 1250px;
+    margin: 0 auto;
+    padding: 45px;
+    background: #2d2823;
+    border-radius: 12px;
+}
+
+.about-section > h2 {
+    margin-top: 0;
+    margin-bottom: 40px;
+    align-items: center;
+    font-size: 2.4rem;
+}
+
+.about-layout {
+    display: grid;
+    grid-template-columns: minmax(300px, 420px) 1fr;
+    gap: 55px;
+    align-items: start;
+}
+
+.author-identity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.author-identity h1 {
+    margin: 24px 0 0;
+    font-size: 1.8rem;
+    line-height: 1.3;
+}
+
+.author-identity h1 span {
+    display: block;
+    margin-top: 5px;
+    color: #d4af37;
+    font-size: 1.05rem;
+    font-weight: normal;
+}
+
+@media (max-width: 800px) {
+.about-section {
+    padding: 30px 20px;
+}
+
+profile-frame {
+    width: 100%;
+    padding: 10px;
+    background: #2b2622;
+    border: 1px solid rgba(212, 175, 55, 0.30);
+    border-radius: 16px;
+    box-shadow:
+        0 0 18px rgba(212, 175, 55, 0.20),
+        inset 0 0 8px rgba(255, 255, 255, 0.65);
 }
 
 #statusMessage {
