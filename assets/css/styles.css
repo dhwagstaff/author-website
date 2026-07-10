@@ -211,7 +211,7 @@ footer {
 }
 
 .author-text {
-    max-width: 760px;
+    max-width: 100%;
     line-height: 1.8;
     font-size: 1.08rem;
 }
@@ -241,17 +241,13 @@ footer {
 }
 
 .about-layout {
-    display: grid;
-    grid-template-columns: minmax(300px, 420px) 1fr;
-    gap: 55px;
-    align-items: start;
+    grid-template-columns: 1fr;
+    gap: 35px;
 }
 
 .author-identity {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+    max-width: 420px;
+    margin: 0 auto;
 }
 
 .author-identity h1 {
